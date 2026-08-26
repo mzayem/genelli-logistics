@@ -1,0 +1,489 @@
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Montserrat:wght@300;400;500;600&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+:root {
+  --gold: #ba9b21;
+  --black: #0a0a0a;
+  --white: #ffffff;
+}
+.gl-wrap {
+  background: var(--black);
+  font-family: "Montserrat", sans-serif;
+  color: var(--white);
+}
+
+/* NAV */
+.gl-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.25rem 3rem;
+  border-bottom: 0.5px solid rgba(186, 155, 33, 0.2);
+  background: rgba(10, 10, 10, 0.97);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.gl-nav-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.gl-g-mark {
+  height: 40px;
+  width: auto;
+  display: block;
+}
+.gl-nav-back {
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.4);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: color 0.2s;
+}
+.gl-nav-back:hover {
+  color: var(--gold);
+}
+.gl-nav-back-arrow {
+  width: 16px;
+  height: 1px;
+  background: currentColor;
+  position: relative;
+}
+.gl-nav-back-arrow::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: -3px;
+  width: 6px;
+  height: 6px;
+  border-left: 1px solid currentColor;
+  border-bottom: 1px solid currentColor;
+  transform: rotate(45deg);
+}
+
+/* HERO */
+.gl-hero {
+  padding: 5rem 3rem 3rem;
+  position: relative;
+  overflow: hidden;
+}
+.gl-hero-bg-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: "Cormorant Garamond", serif;
+  font-size: 180px;
+  font-weight: 600;
+  color: rgba(186, 155, 33, 0.04);
+  letter-spacing: 0.1em;
+  white-space: nowrap;
+  pointer-events: none;
+  user-select: none;
+}
+.gl-hero-inner {
+  max-width: 700px;
+  position: relative;
+}
+.gl-hero-eyebrow {
+  font-size: 10px;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.gl-hero-eyebrow-line {
+  width: 30px;
+  height: 1px;
+  background: var(--gold);
+}
+.gl-hero-headline {
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(38px, 5vw, 64px);
+  font-weight: 300;
+  line-height: 1.15;
+  margin-bottom: 1.5rem;
+  letter-spacing: 0.02em;
+}
+.gl-hero-headline span {
+  color: var(--gold);
+}
+.gl-hero-body {
+  font-size: 13px;
+  line-height: 1.9;
+  color: rgba(255, 255, 255, 0.5);
+  max-width: 520px;
+  letter-spacing: 0.02em;
+  margin-bottom: 2.5rem;
+}
+.gl-hero-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 10px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--gold);
+  border: 0.5px solid rgba(186, 155, 33, 0.4);
+  padding: 14px 28px;
+  text-decoration: none;
+  transition:
+    background 0.3s,
+    border-color 0.3s;
+  cursor: pointer;
+}
+.gl-hero-cta:hover {
+  background: rgba(186, 155, 33, 0.08);
+  border-color: var(--gold);
+}
+
+/* PARTNERS */
+.gl-partners {
+  padding: 3rem;
+  border-top: 0.5px solid rgba(186, 155, 33, 0.12);
+  border-bottom: 0.5px solid rgba(186, 155, 33, 0.12);
+}
+.gl-partners-label {
+  font-size: 9px;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.25);
+  margin-bottom: 2rem;
+  text-align: center;
+}
+.gl-partners-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4rem;
+}
+
+/* Lime logo recreation */
+.gl-lime-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  opacity: 0.7;
+  transition: opacity 0.2s;
+}
+.gl-lime-logo:hover {
+  opacity: 1;
+}
+.gl-lime-icon {
+  width: 36px;
+  height: 36px;
+  background: #00c13a;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.gl-lime-icon svg {
+  width: 20px;
+  height: 20px;
+  fill: white;
+}
+.gl-lime-wordmark {
+  font-family: "Montserrat", sans-serif;
+  font-size: 22px;
+  font-weight: 600;
+  color: #00c13a;
+  letter-spacing: -0.02em;
+}
+
+/* VOI logo recreation */
+.gl-voi-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  opacity: 0.7;
+  transition: opacity 0.2s;
+}
+.gl-voi-logo:hover {
+  opacity: 1;
+}
+.gl-voi-icon {
+  width: 36px;
+  height: 36px;
+  background: #ff3d30;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.gl-voi-icon svg {
+  width: 20px;
+  height: 20px;
+  fill: white;
+}
+.gl-voi-wordmark {
+  font-family: "Montserrat", sans-serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: #ff3d30;
+  letter-spacing: 0.05em;
+}
+
+.gl-partners-divider {
+  width: 1px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.1);
+}
+.gl-partners-text {
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.3);
+  letter-spacing: 0.15em;
+  text-align: center;
+  margin-top: 1.5rem;
+}
+
+/* SERVICES */
+.gl-services {
+  padding: 5rem 3rem;
+}
+.gl-section-label {
+  font-size: 9px;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.75rem;
+}
+.gl-section-headline {
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(28px, 3vw, 40px);
+  font-weight: 300;
+  color: var(--white);
+  margin-bottom: 3rem;
+  line-height: 1.2;
+}
+.gl-services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: rgba(186, 155, 33, 0.12);
+}
+.gl-service-card {
+  background: var(--black);
+  padding: 2.5rem 2rem;
+  transition: background 0.3s;
+  position: relative;
+}
+.gl-service-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--gold);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s;
+}
+.gl-service-card:hover {
+  background: #0f0f0f;
+}
+.gl-service-card:hover::before {
+  transform: scaleX(1);
+}
+.gl-service-icon {
+  width: 44px;
+  height: 44px;
+  border: 1px solid rgba(186, 155, 33, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+  transition: border-color 0.3s;
+}
+.gl-service-card:hover .gl-service-icon {
+  border-color: var(--gold);
+}
+.gl-service-icon svg {
+  width: 20px;
+  height: 20px;
+  stroke: var(--gold);
+  fill: none;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.gl-service-title {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--white);
+  margin-bottom: 0.75rem;
+  letter-spacing: 0.05em;
+}
+.gl-service-body {
+  font-size: 11px;
+  line-height: 1.85;
+  color: rgba(255, 255, 255, 0.4);
+  letter-spacing: 0.02em;
+}
+
+/* COVERAGE */
+.gl-coverage {
+  padding: 5rem 3rem;
+  background: #080808;
+  border-top: 0.5px solid rgba(186, 155, 33, 0.12);
+}
+.gl-coverage-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: start;
+}
+.gl-coverage-areas {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+}
+.gl-area {
+  padding: 1rem 1.25rem;
+  border-bottom: 0.5px solid rgba(186, 155, 33, 0.1);
+  border-right: 0.5px solid rgba(186, 155, 33, 0.1);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: background 0.2s;
+}
+.gl-area:hover {
+  background: rgba(186, 155, 33, 0.04);
+}
+.gl-area:nth-child(even) {
+  border-right: none;
+}
+.gl-area-dot {
+  width: 4px;
+  height: 4px;
+  background: var(--gold);
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.gl-area-name {
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  color: rgba(255, 255, 255, 0.5);
+}
+.gl-coverage-more {
+  grid-column: 1/-1;
+  padding: 1rem 1.25rem;
+  border-bottom: 0.5px solid rgba(186, 155, 33, 0.1);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.gl-coverage-more-text {
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  color: var(--gold);
+}
+
+/* STATS */
+.gl-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: rgba(186, 155, 33, 0.12);
+  margin: 0 3rem;
+}
+.gl-stat {
+  background: var(--black);
+  padding: 2.5rem 2rem;
+  text-align: center;
+}
+.gl-stat-num {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 48px;
+  font-weight: 600;
+  color: var(--gold);
+  line-height: 1;
+  margin-bottom: 0.5rem;
+}
+.gl-stat-label {
+  font-size: 9px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.3);
+}
+
+/* CTA BAND */
+.gl-cta-band {
+  padding: 5rem 3rem;
+  text-align: center;
+  border-top: 0.5px solid rgba(186, 155, 33, 0.12);
+}
+.gl-cta-headline {
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(30px, 4vw, 52px);
+  font-weight: 300;
+  color: var(--white);
+  margin-bottom: 1rem;
+}
+.gl-cta-headline span {
+  color: var(--gold);
+}
+.gl-cta-sub {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.4);
+  letter-spacing: 0.05em;
+  margin-bottom: 2.5rem;
+}
+.gl-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 10px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--gold);
+  border: 0.5px solid rgba(186, 155, 33, 0.4);
+  padding: 16px 36px;
+  cursor: pointer;
+  transition:
+    background 0.3s,
+    border-color 0.3s;
+}
+.gl-cta-btn:hover {
+  background: rgba(186, 155, 33, 0.08);
+  border-color: var(--gold);
+}
+
+/* FOOTER */
+.gl-footer {
+  padding: 2rem 3rem;
+  border-top: 0.5px solid rgba(186, 155, 33, 0.12);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.gl-footer-copy {
+  font-size: 10px;
+  color: rgba(255, 255, 255, 0.2);
+  letter-spacing: 0.1em;
+}
+.gl-footer-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 10px;
+  color: rgba(255, 255, 255, 0.25);
+  letter-spacing: 0.15em;
+}
+.gl-footer-group span {
+  color: var(--gold);
+}
