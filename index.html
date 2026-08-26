@@ -1,0 +1,735 @@
+<link rel="icon" type="image/png" href="assets/images/genlli-icon.png" />
+<style>
+  @import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Montserrat:wght@300;400;500;600&display=swap");
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  :root {
+    --gold: #ba9b21;
+    --black: #0a0a0a;
+    --white: #ffffff;
+  }
+  .gl-wrap {
+    background: var(--black);
+    font-family: "Montserrat", sans-serif;
+    color: var(--white);
+  }
+
+  /* NAV */
+  .gl-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.25rem 3rem;
+    border-bottom: 0.5px solid rgba(186, 155, 33, 0.2);
+    background: rgba(10, 10, 10, 0.97);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .gl-nav-left {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .gl-g-mark {
+    height: 40px;
+    width: auto;
+    display: block;
+  }
+  .gl-nav-back {
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.4);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: color 0.2s;
+  }
+  .gl-nav-back:hover {
+    color: var(--gold);
+  }
+  .gl-nav-back-arrow {
+    width: 16px;
+    height: 1px;
+    background: currentColor;
+    position: relative;
+  }
+  .gl-nav-back-arrow::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: -3px;
+    width: 6px;
+    height: 6px;
+    border-left: 1px solid currentColor;
+    border-bottom: 1px solid currentColor;
+    transform: rotate(45deg);
+  }
+
+  /* HERO */
+  .gl-hero {
+    padding: 5rem 3rem 3rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .gl-hero-bg-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: "Cormorant Garamond", serif;
+    font-size: 180px;
+    font-weight: 600;
+    color: rgba(186, 155, 33, 0.04);
+    letter-spacing: 0.1em;
+    white-space: nowrap;
+    pointer-events: none;
+    user-select: none;
+  }
+  .gl-hero-inner {
+    max-width: 700px;
+    position: relative;
+  }
+  .gl-hero-eyebrow {
+    font-size: 10px;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .gl-hero-eyebrow-line {
+    width: 30px;
+    height: 1px;
+    background: var(--gold);
+  }
+  .gl-hero-headline {
+    font-family: "Cormorant Garamond", serif;
+    font-size: clamp(38px, 5vw, 64px);
+    font-weight: 300;
+    line-height: 1.15;
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.02em;
+  }
+  .gl-hero-headline span {
+    color: var(--gold);
+  }
+  .gl-hero-body {
+    font-size: 13px;
+    line-height: 1.9;
+    color: rgba(255, 255, 255, 0.5);
+    max-width: 520px;
+    letter-spacing: 0.02em;
+    margin-bottom: 2.5rem;
+  }
+  .gl-hero-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 10px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold);
+    border: 0.5px solid rgba(186, 155, 33, 0.4);
+    padding: 14px 28px;
+    text-decoration: none;
+    transition:
+      background 0.3s,
+      border-color 0.3s;
+    cursor: pointer;
+  }
+  .gl-hero-cta:hover {
+    background: rgba(186, 155, 33, 0.08);
+    border-color: var(--gold);
+  }
+
+  /* PARTNERS */
+  .gl-partners {
+    padding: 3rem;
+    border-top: 0.5px solid rgba(186, 155, 33, 0.12);
+    border-bottom: 0.5px solid rgba(186, 155, 33, 0.12);
+  }
+  .gl-partners-label {
+    font-size: 9px;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.25);
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+  .gl-partners-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4rem;
+  }
+
+  /* Lime logo recreation */
+  .gl-lime-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    opacity: 0.7;
+    transition: opacity 0.2s;
+  }
+  .gl-lime-logo:hover {
+    opacity: 1;
+  }
+  .gl-lime-icon {
+    width: 36px;
+    height: 36px;
+    background: #00c13a;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .gl-lime-icon svg {
+    width: 20px;
+    height: 20px;
+    fill: white;
+  }
+  .gl-lime-wordmark {
+    font-family: "Montserrat", sans-serif;
+    font-size: 22px;
+    font-weight: 600;
+    color: #00c13a;
+    letter-spacing: -0.02em;
+  }
+
+  /* VOI logo recreation */
+  .gl-voi-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    opacity: 0.7;
+    transition: opacity 0.2s;
+  }
+  .gl-voi-logo:hover {
+    opacity: 1;
+  }
+  .gl-voi-icon {
+    width: 36px;
+    height: 36px;
+    background: #ff3d30;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .gl-voi-icon svg {
+    width: 20px;
+    height: 20px;
+    fill: white;
+  }
+  .gl-voi-wordmark {
+    font-family: "Montserrat", sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: #ff3d30;
+    letter-spacing: 0.05em;
+  }
+
+  .gl-partners-divider {
+    width: 1px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.1);
+  }
+  .gl-partners-text {
+    font-size: 11px;
+    color: rgba(255, 255, 255, 0.3);
+    letter-spacing: 0.15em;
+    text-align: center;
+    margin-top: 1.5rem;
+  }
+
+  /* SERVICES */
+  .gl-services {
+    padding: 5rem 3rem;
+  }
+  .gl-section-label {
+    font-size: 9px;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.75rem;
+  }
+  .gl-section-headline {
+    font-family: "Cormorant Garamond", serif;
+    font-size: clamp(28px, 3vw, 40px);
+    font-weight: 300;
+    color: var(--white);
+    margin-bottom: 3rem;
+    line-height: 1.2;
+  }
+  .gl-services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: rgba(186, 155, 33, 0.12);
+  }
+  .gl-service-card {
+    background: var(--black);
+    padding: 2.5rem 2rem;
+    transition: background 0.3s;
+    position: relative;
+  }
+  .gl-service-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: var(--gold);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s;
+  }
+  .gl-service-card:hover {
+    background: #0f0f0f;
+  }
+  .gl-service-card:hover::before {
+    transform: scaleX(1);
+  }
+  .gl-service-icon {
+    width: 44px;
+    height: 44px;
+    border: 1px solid rgba(186, 155, 33, 0.25);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+    transition: border-color 0.3s;
+  }
+  .gl-service-card:hover .gl-service-icon {
+    border-color: var(--gold);
+  }
+  .gl-service-icon svg {
+    width: 20px;
+    height: 20px;
+    stroke: var(--gold);
+    fill: none;
+    stroke-width: 1.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+  .gl-service-title {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--white);
+    margin-bottom: 0.75rem;
+    letter-spacing: 0.05em;
+  }
+  .gl-service-body {
+    font-size: 11px;
+    line-height: 1.85;
+    color: rgba(255, 255, 255, 0.4);
+    letter-spacing: 0.02em;
+  }
+
+  /* COVERAGE */
+  .gl-coverage {
+    padding: 5rem 3rem;
+    background: #080808;
+    border-top: 0.5px solid rgba(186, 155, 33, 0.12);
+  }
+  .gl-coverage-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: start;
+  }
+  .gl-coverage-areas {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+  }
+  .gl-area {
+    padding: 1rem 1.25rem;
+    border-bottom: 0.5px solid rgba(186, 155, 33, 0.1);
+    border-right: 0.5px solid rgba(186, 155, 33, 0.1);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: background 0.2s;
+  }
+  .gl-area:hover {
+    background: rgba(186, 155, 33, 0.04);
+  }
+  .gl-area:nth-child(even) {
+    border-right: none;
+  }
+  .gl-area-dot {
+    width: 4px;
+    height: 4px;
+    background: var(--gold);
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+  .gl-area-name {
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    color: rgba(255, 255, 255, 0.5);
+  }
+  .gl-coverage-more {
+    grid-column: 1/-1;
+    padding: 1rem 1.25rem;
+    border-bottom: 0.5px solid rgba(186, 155, 33, 0.1);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .gl-coverage-more-text {
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    color: var(--gold);
+  }
+
+  /* STATS */
+  .gl-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: rgba(186, 155, 33, 0.12);
+    margin: 0 3rem;
+  }
+  .gl-stat {
+    background: var(--black);
+    padding: 2.5rem 2rem;
+    text-align: center;
+  }
+  .gl-stat-num {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 48px;
+    font-weight: 600;
+    color: var(--gold);
+    line-height: 1;
+    margin-bottom: 0.5rem;
+  }
+  .gl-stat-label {
+    font-size: 9px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.3);
+  }
+
+  /* CTA BAND */
+  .gl-cta-band {
+    padding: 5rem 3rem;
+    text-align: center;
+    border-top: 0.5px solid rgba(186, 155, 33, 0.12);
+  }
+  .gl-cta-headline {
+    font-family: "Cormorant Garamond", serif;
+    font-size: clamp(30px, 4vw, 52px);
+    font-weight: 300;
+    color: var(--white);
+    margin-bottom: 1rem;
+  }
+  .gl-cta-headline span {
+    color: var(--gold);
+  }
+  .gl-cta-sub {
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.4);
+    letter-spacing: 0.05em;
+    margin-bottom: 2.5rem;
+  }
+  .gl-cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 10px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--gold);
+    border: 0.5px solid rgba(186, 155, 33, 0.4);
+    padding: 16px 36px;
+    cursor: pointer;
+    transition:
+      background 0.3s,
+      border-color 0.3s;
+  }
+  .gl-cta-btn:hover {
+    background: rgba(186, 155, 33, 0.08);
+    border-color: var(--gold);
+  }
+
+  /* FOOTER */
+  .gl-footer {
+    padding: 2rem 3rem;
+    border-top: 0.5px solid rgba(186, 155, 33, 0.12);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .gl-footer-copy {
+    font-size: 10px;
+    color: rgba(255, 255, 255, 0.2);
+    letter-spacing: 0.1em;
+  }
+  .gl-footer-group {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 10px;
+    color: rgba(255, 255, 255, 0.25);
+    letter-spacing: 0.15em;
+  }
+  .gl-footer-group span {
+    color: var(--gold);
+  }
+</style>
+
+<div class="gl-wrap">
+  <nav class="gl-nav">
+    <div class="gl-nav-left">
+      <img
+        class="gl-g-mark"
+        src="assets/images/logo.png"
+        alt="Genelli Logistics"
+      />
+    </div>
+    <a class="gl-nav-back" href="#" onclick="return false;">
+      <div class="gl-nav-back-arrow"></div>
+      Genelli Group
+    </a>
+  </nav>
+
+  <section class="gl-hero">
+    <div class="gl-hero-bg-text">LOGISTICS</div>
+    <div class="gl-hero-inner">
+      <p class="gl-hero-eyebrow">
+        <span class="gl-hero-eyebrow-line"></span>Micro-Mobility Operations
+      </p>
+      <h1 class="gl-hero-headline">
+        The Operational <span>Backbone</span> of Urban Mobility
+      </h1>
+      <p class="gl-hero-body">
+        Genelli Logistics is a specialist third-party operations partner for the
+        world's leading micro-mobility companies. We keep fleets moving,
+        charged, and compliant across 8+ coverage areas and growing.
+      </p>
+      <a class="gl-hero-cta" href="mailto:info@genellilogistics.com"
+        >Partner With Us</a
+      >
+    </div>
+  </section>
+  <!-- 
+  <div class="gl-partners">
+    <p class="gl-partners-label">Trusted Partners</p>
+    <div class="gl-partners-row">
+      <div class="gl-lime-logo">
+        <div class="gl-lime-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 2C8 2 4 6 4 11c0 3 1.5 5.5 4 7l1 4h6l1-4c2.5-1.5 4-4 4-7 0-5-4-9-8-9z"/></svg>
+        </div>
+        <div class="gl-lime-wordmark">Lime</div>
+      </div>
+      <div class="gl-partners-divider"></div>
+      <div class="gl-voi-logo">
+        <div class="gl-voi-icon">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M4.9 19.1L7 17M17 7l2.1-2.1"/></svg>
+        </div>
+        <div class="gl-voi-wordmark">VOI</div>
+      </div>
+    </div>
+    <p class="gl-partners-text">Official operations support partner</p>
+  </div> -->
+
+  <section class="gl-services">
+    <p class="gl-section-label">What We Do</p>
+    <h2 class="gl-section-headline">
+      End-to-End Fleet<br />Operations Support
+    </h2>
+    <div class="gl-services-grid">
+      <div class="gl-service-card">
+        <div class="gl-service-icon">
+          <svg viewBox="0 0 24 24">
+            <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
+          </svg>
+        </div>
+        <div class="gl-service-title">Charging & Rebalancing</div>
+        <p class="gl-service-body">
+          Collection, overnight charging, and strategic redeployment of
+          e-scooters and e-bikes to high-demand zones keeping fleets available
+          when riders need them most.
+        </p>
+      </div>
+      <div class="gl-service-card">
+        <div class="gl-service-icon">
+          <svg viewBox="0 0 24 24">
+            <path
+              d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"
+            />
+          </svg>
+        </div>
+        <div class="gl-service-title">Maintenance & Repair</div>
+        <p class="gl-service-body">
+          On-the-ground inspection, damage assessment, and first-line repairs to
+          ensure every vehicle in the fleet meets safety and operational
+          standards before deployment.
+        </p>
+      </div>
+      <div class="gl-service-card">
+        <div class="gl-service-icon">
+          <svg viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="10" />
+            <path d="M12 8v4l3 3" />
+          </svg>
+        </div>
+        <div class="gl-service-title">24/7 Field Operations</div>
+        <p class="gl-service-body">
+          Round-the-clock ground teams ready to respond to fleet alerts,
+          compliance requirements, and city regulations ensuring partner uptime
+          at all hours.
+        </p>
+      </div>
+      <div class="gl-service-card">
+        <div class="gl-service-icon">
+          <svg viewBox="0 0 24 24">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" />
+            <circle cx="12" cy="10" r="3" />
+          </svg>
+        </div>
+        <div class="gl-service-title">Deployment & Parking</div>
+        <p class="gl-service-body">
+          Precise placement of vehicles at licensed bays, corrals, and
+          high-footfall locations in compliance with local authority agreements
+          and city operator licences.
+        </p>
+      </div>
+      <div class="gl-service-card">
+        <div class="gl-service-icon">
+          <svg viewBox="0 0 24 24">
+            <rect x="2" y="3" width="20" height="14" rx="2" />
+            <path d="M8 21h8M12 17v4" />
+          </svg>
+        </div>
+        <div class="gl-service-title">Fleet Monitoring</div>
+        <p class="gl-service-body">
+          Real-time tracking and performance reporting to help micro-mobility
+          operators make data-driven decisions about fleet distribution and
+          operational efficiency.
+        </p>
+      </div>
+      <div class="gl-service-card">
+        <div class="gl-service-icon">
+          <svg viewBox="0 0 24 24">
+            <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" />
+            <circle cx="9" cy="7" r="4" />
+            <path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75" />
+          </svg>
+        </div>
+        <div class="gl-service-title">Dedicated Teams</div>
+        <p class="gl-service-body">
+          Trained, uniformed field operatives assigned to specific coverage
+          zones, providing a consistent and professional service experience on
+          behalf of our partners.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <div class="gl-stats">
+    <div class="gl-stat">
+      <div class="gl-stat-num">8+</div>
+      <div class="gl-stat-label">Coverage Areas</div>
+    </div>
+    <div class="gl-stat">
+      <div class="gl-stat-num">2</div>
+      <div class="gl-stat-label">Major Partners</div>
+    </div>
+    <div class="gl-stat">
+      <div class="gl-stat-num">24/7</div>
+      <div class="gl-stat-label">Field Operations</div>
+    </div>
+  </div>
+
+  <section class="gl-coverage">
+    <div class="gl-coverage-inner">
+      <div>
+        <p class="gl-section-label">Where We Operate</p>
+        <h2 class="gl-section-headline">
+          Covering the<br />Cities That Matter
+        </h2>
+        <p
+          style="
+            font-size: 12px;
+            line-height: 1.9;
+            color: rgba(255, 255, 255, 0.4);
+            letter-spacing: 0.02em;
+            margin-bottom: 1.5rem;
+          "
+        >
+          Our operational footprint spans 8+ active areas across the UK, with
+          new coverage zones being added as our partner network grows. Each area
+          is staffed by a dedicated local team with deep knowledge of city
+          regulations and rider behaviour.
+        </p>
+        <p
+          style="
+            font-size: 10px;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--gold);
+          "
+        >
+          Expanding coverage contact us to discuss your area
+        </p>
+      </div>
+      <div>
+        <div class="gl-coverage-areas">
+          <div class="gl-area">
+            <div class="gl-area-dot"></div>
+            <span class="gl-area-name">Milton Keynes</span>
+          </div>
+          <div class="gl-area">
+            <div class="gl-area-dot"></div>
+            <span class="gl-area-name">Nottingham</span>
+          </div>
+          <div class="gl-area">
+            <div class="gl-area-dot"></div>
+            <span class="gl-area-name">Oxford</span>
+          </div>
+
+          <div class="gl-area">
+            <div class="gl-area-dot"></div>
+            <span class="gl-area-name">Northampton</span>
+          </div>
+          <div class="gl-coverage-more">
+            <div class="gl-area-dot"></div>
+            <span class="gl-coverage-more-text">+ More areas in operation</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="gl-cta-band">
+    <h2 class="gl-cta-headline">Ready to <span>Scale</span> Your Fleet?</h2>
+    <p class="gl-cta-sub">
+      Get in touch to discuss how Genelli Logistics can support your
+      micro-mobility operations.
+    </p>
+    <a class="gl-cta-btn" href="mailto:info@genellilogistics.com"
+      >Contact Our Team</a
+    >
+  </section>
+
+  <footer class="gl-footer">
+    <p class="gl-footer-copy">
+      © 2025 Genelli Logistics · genellilogistics.com
+    </p>
+    <div class="gl-footer-group">A part of <span>GENELLI GROUP</span></div>
+  </footer>
+</div>
